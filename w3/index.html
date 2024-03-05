@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="getData()">Get Data</button>
+    <button onclick="clearData()">Clear Data</button>
+    <div id="data"></div>
+</body>
+<script>
+
+    const clearData=()=>{
+        const dataDiv=document.querySelector("#data");
+        dataDiv.innerText="";
+    }
+    const getData=async()=>{
+        const response=await fetch("https://fakerapi.it/api/v1/persons");
+        const data=await response.json();
+        console.log(data);
+        const arr=data.data;
+        const dataDiv=document.querySelector("#data");
+        arr.map((item)=>{
+            const list=document.createElement("p");
+            list.innerText=item.firstname;
+            dataDiv.appendChild(list);
+        })
+    }
+
+   
+    
+</script>
+</html>

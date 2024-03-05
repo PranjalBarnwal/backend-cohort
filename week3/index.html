@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+<body>
+  <header>
+    <h1>Todo</h1>
+    <br />
+    Title-<input
+      type="text"
+      class="title"
+    />
+    <br /><br />
+    Description-<input
+      type="text"
+      class="description"
+    />
+    <br /><br />
+    <button onclick="onPress()">Add Todo</button>
+  </header>
+
+  <script>
+    const body = document.querySelector("body");
+
+    const parsedResponse = (data) => {
+      if (data) {
+        var div = document.createElement("div");
+        var t = document.createElement("h3");
+        var d = document.createElement("h4");
+        t.innerText = data.title || "No Title";
+        d.innerText = data.description || "No Description";
+        div.append(t);
+        div.append(d);
+        body.append(div);
+      } else {
+        console.error("Error: No data received");
+      }
+    };
+
+    const callback = (resp) => {
+      if (resp.ok) {
+        resp.json().then(parsedResponse);
+      } else {
+        console.error("Error:", resp.status, resp.statusText);
+      }
+    };
+
+    const onPress = () => {
+      const title = document.querySelector(".title").value;
+      const description = document.querySelector(".description").value;
+
+      fetch("http://localhost:3000/todos", {
+        method: "POST",
+        body: JSON.stringify({
+          "title": title,
+          "description": description
+        }),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }).then(callback);
+    };
+  </script>
+</body>
+</html>
