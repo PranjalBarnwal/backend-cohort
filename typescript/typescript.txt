@@ -1,0 +1,27 @@
+https://projects.100xdevs.com/tracks/6SbPPXGkG8QKFOTW9BmL/ts-1
+
+-Typescript typechecking happens during compile time, for runtime checks we can use library like zod 
+
+Type inference:
+
+Type inference refers to the ability of a programming language's compiler to automatically deduce the data type of a variable, function argument, or return value based on its context. This eliminates the need for explicit type annotations in many cases, making the code more concise and easier to write.
+
+However, there are situations where explicit type annotations might still be useful:
+
+Complex Logic: When dealing with intricate logic or multiple data types within a variable, type annotations can enhance clarity.
+Large Codebases: In extensive projects, explicit types can improve code understanding for developers working on different parts.
+
+--------------
+
+.gitignore-> only .ts/.tsx , tsconfig.json and package.json should be pushed to github else should be in gitignore
+
+--------------
+
+Difference between .ts and .tsx (just like .js and .jsx)
+
+Choosing the right extension:
+
+Use .ts for files that don't involve JSX and only use pure TypeScript features.
+Use .tsx for files that define React components and leverage JSX syntax along with TypeScript.
+
+--------------
