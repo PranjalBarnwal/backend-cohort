@@ -25,3 +25,10 @@ Use .ts for files that don't involve JSX and only use pure TypeScript features.
 Use .tsx for files that define React components and leverage JSX syntax along with TypeScript.
 
 --------------
+
+Q- What are the key differences betwen interface and types in ts
+-Intefaces and types are quite similar and are used to aggregate data
+-Interface can be implemented by classes
+-Types let us do unions and intersectons
+
+
